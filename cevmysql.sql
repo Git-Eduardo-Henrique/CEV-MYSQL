@@ -12,15 +12,10 @@ create table pessoas(
     nacionalidade varchar(20) default 'brazil',
     primary key(id)
 );
-describe pessoas;
 
-select * from pessoas;
-
-insert into pessoas(nome,  nascimento, sexo, peso, altura, nacionalidade) 
-values ('robertinho_gameplays', '1984-01-02', 'm', '78.5', '1.83', 'brazil');
-
-insert into pessoas(nome,  nascimento, sexo, peso, altura, nacionalidade) 
-values ('sus', '2999-01-02', 'm', '78.5', '1.83', default);
+insert into pessoas(nome,  nascimento, sexo, peso, altura, nacionalidade) values 
+('robertinho_gameplays', '1984-01-02', 'm', '78.5', '1.83', 'brazil'),
+('sus', '2999-01-02', 'm', '78.5', '1.83', default);
 
 insert into pessoas values (default, 'poop', '1999-01-02', 'm', '78.5', '1.83', default);
 
@@ -32,9 +27,6 @@ alter table pessoas change column profissao prof varchar(20);
 
 alter table pessoas rename to people;
 
-describe people;
-select * from people;
-
 create table if not exists cursos (
 	nome varchar(20) not null unique,
     descrição text,
@@ -42,9 +34,27 @@ create table if not exists cursos (
     totalaulas int unsigned,
     ano year default '2016'
 );
-
-describe cursos;
-select * from cursos;
-
 alter table cursos add column idcurso int first;
 alter table cursos add primary key(idcurso);
+
+-- aula 7
+insert into cursos values 
+('1', 'HTML4', 'Curso de HTML5', '40', '37', '2014'),
+('2', 'Algoritmos', 'Logica de Programação', '20', '15', '2014'),
+('3', 'Photoshop', 'Dicas de Photoshop', '10', '8', '2014'),
+('4', 'PGP', 'Curso de PHP para iniciantes', '40', '20', '2010'),
+('5', 'Jarva', 'Introdução a Linguagem Java', '10', '29', '2000'),
+('6', 'MySql', 'Bancos de Dados Mysql', '30', '15', '2016'),
+('7', 'Word', 'Curso de Word', '40', '30', '2016'),
+('8', 'Sapateado', 'Danças ritmicas', '40', '30', '2018'),
+('9', 'Cozinha arabe', 'Aprenda a fazer kibe', '40', '30', '2018'),
+('10', 'Youtube', 'Gerar polemica e ganhar inscritos', '5', '2', '2018');
+
+-- comandos tops
+describe pessoas;
+describe cursos;
+describe people;
+
+select * from cursos;
+select * from people;
+select * from pessoas;
